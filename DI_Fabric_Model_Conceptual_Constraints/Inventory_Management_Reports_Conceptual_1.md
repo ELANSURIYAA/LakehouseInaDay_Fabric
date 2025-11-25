@@ -14,110 +14,108 @@ This conceptual data model covers the Inventory Management domain, focusing on a
 
 ## 2. List of Entity Names with Descriptions
 
-1. **Product**: Represents items managed in the inventory system with their categorization and identification details
-2. **Warehouse**: Physical storage locations where inventory is maintained with capacity and location information
-3. **Supplier**: External vendors who provide products to the organization with performance tracking capabilities
-4. **Inventory**: Current stock levels and status of products across different warehouses
-5. **Sales**: Historical and current sales transactions and quantities for products
-6. **Purchase Order**: Orders placed with suppliers for product procurement
-7. **Delivery**: Shipment and delivery information for orders from suppliers
-8. **Forecast**: Predictive demand data for products based on historical trends and seasonal factors
+1. **Product**: Represents items managed within the inventory system, including their categorization and identification
+2. **Warehouse**: Physical storage locations where inventory is maintained, including capacity and location information
+3. **Supplier**: External entities that provide products to the organization, including performance metrics
+4. **Purchase Order**: Formal requests for products from suppliers, including delivery and fulfillment details
+5. **Sales Transaction**: Records of product sales, including quantities and timing
+6. **Inventory Level**: Current stock quantities and status for products across warehouses
+7. **Threshold Configuration**: Minimum and maximum stock level settings for inventory management
+8. **Demand Forecast**: Predictive data for future product demand based on historical trends
 
 ## 3. List of Attributes for Each Entity
 
 ### Product
-1. **Product Name**: Unique identifier name for each product in the system
-2. **Category**: Classification grouping for products for reporting and analysis purposes
-3. **Cost of Goods Sold**: Financial value used for inventory turnover calculations
+1. **Product Name**: Unique identifier name for the product
+2. **Category**: Classification grouping for the product
+3. **Cost of Goods Sold**: Financial cost associated with the product
 
 ### Warehouse
-1. **Warehouse Name**: Unique identifier for each warehouse location
-2. **Location**: Geographic or address information for the warehouse
-3. **Capacity**: Total storage capacity of the warehouse in square feet or cubic meters
-4. **Utilized Space**: Currently occupied storage space in the warehouse
+1. **Warehouse Name**: Unique identifier for the warehouse facility
+2. **Location**: Geographic location of the warehouse
+3. **Total Capacity**: Maximum storage capacity in square feet or cubic meters
+4. **Utilized Space**: Currently occupied storage space
 5. **Region**: Geographic region where the warehouse is located
 
 ### Supplier
-1. **Supplier Name**: Unique identifier for each supplier in the system
-2. **Average Delivery Time**: Typical time taken by supplier to deliver orders in days
-3. **Order Fulfillment Rate**: Percentage of orders successfully fulfilled by the supplier
-4. **Total Purchase Order Value**: Cumulative value of orders placed with the supplier
-5. **Rejected Items Percentage**: Percentage of items rejected due to quality or other issues
-6. **Delayed Delivery Percentage**: Percentage of orders delivered after the promised date
-
-### Inventory
-1. **Stock Level**: Current quantity of product available in warehouse
-2. **Minimum Threshold Level**: Minimum stock level before reorder is required
-3. **Maximum Threshold Level**: Maximum stock level to avoid overstocking
-4. **Stock Replenishment Status**: Current status indicating below, optimal, or overstocked levels
-5. **Average Daily Sales**: Historical average of daily sales for reorder calculations
-6. **Lead Time**: Time required for supplier to deliver after order placement
-
-### Sales
-1. **Sales Quantity**: Number of units sold for a specific product
-2. **Sales Trends**: Historical pattern of sales over time periods
-3. **Average Inventory**: Average stock level maintained over a period
+1. **Supplier Name**: Unique identifier for the supplier organization
+2. **Average Delivery Time**: Typical time taken for order delivery in days
+3. **Order Fulfillment Rate**: Percentage of orders successfully fulfilled
+4. **Rejected Items Percentage**: Percentage of items rejected due to quality issues
+5. **Delayed Delivery Percentage**: Percentage of orders delivered late
 
 ### Purchase Order
-1. **Orders Delivered on Time**: Count of orders delivered within promised timeframe
-2. **Total Orders**: Total number of orders placed with supplier
-3. **Defective Items**: Count of items received with quality issues
-4. **Total Items Ordered**: Total quantity of items ordered from supplier
+1. **Total Purchase Order Value**: Financial value of the purchase order
+2. **Orders Delivered on Time**: Count of orders delivered within expected timeframe
+3. **Total Orders**: Total number of orders placed
+4. **Defective Items**: Count of items received with defects
+5. **Total Items Ordered**: Total quantity of items in the order
 
-### Delivery
-1. **Delivery Time**: Actual time taken for order delivery
-2. **Delivery Status**: On-time or delayed status of delivery
+### Sales Transaction
+1. **Sales Quantity**: Number of units sold
+2. **Sales Trends**: Historical sales patterns over time
+3. **Average Daily Sales**: Average number of units sold per day
 
-### Forecast
-1. **Historical Sales Data**: Past sales information used for demand prediction
-2. **Predicted Demand**: Forecasted demand for future periods
-3. **Seasonal Factors**: Seasonal adjustments applied to demand forecasting
-4. **Trend Factors**: Growth or decline trends applied to forecasting
-5. **Forecast Accuracy**: Measure of how accurate previous forecasts were
+### Inventory Level
+1. **Stock Level**: Current quantity of product in stock
+2. **Stock Replenishment Status**: Current status (Below, Optimal, Overstocked)
+3. **Average Inventory**: Average stock level over a period
+
+### Threshold Configuration
+1. **Minimum Threshold Level**: Minimum acceptable stock level
+2. **Maximum Threshold Level**: Maximum desired stock level
+3. **Lead Time**: Time required for stock replenishment
+
+### Demand Forecast
+1. **Predicted Demand**: Forecasted demand for next period
+2. **Historical Sales Data**: Past sales data used for forecasting
+3. **Seasonal Factors**: Seasonal adjustments for demand prediction
+4. **Trend Factors**: Trend-based adjustments for demand prediction
+5. **Actual Demand**: Realized demand for comparison with predictions
 
 ## 4. KPI List
 
-1. **Days of Inventory Remaining**: Number of days current stock will last based on sales velocity
+1. **Days of Inventory Remaining**: Based on current stock and sales velocity
 2. **Stockout Percentage**: Percentage of products or warehouses experiencing stockouts
-3. **Overstock Percentage**: Percentage of products exceeding maximum threshold levels
-4. **On-Time Delivery Rate**: Percentage of supplier deliveries made on schedule
-5. **Average Lead Time**: Average time suppliers take to deliver orders
-6. **Defective Items Percentage**: Percentage of items received with quality issues
+3. **Overstock Percentage**: Percentage of inventory exceeding maximum thresholds
+4. **On-Time Delivery Rate**: Percentage of supplier deliveries made on time
+5. **Average Lead Time**: Average time for supplier deliveries in days
+6. **Defective Items Percentage**: Percentage of items received with defects
 7. **Supplier Fulfillment Rate**: Percentage of orders successfully fulfilled by suppliers
-8. **Inventory Turnover Ratio**: Rate at which inventory is sold and replaced over a period
-9. **Fast-Moving vs Slow-Moving Product Ratio**: Comparison of product movement rates
-10. **Average Days to Sell Inventory**: Average time taken to sell inventory
-11. **Warehouse Utilization Rate**: Percentage of warehouse capacity being utilized
+8. **Inventory Turnover Ratio**: Rate at which inventory is sold and replaced
+9. **Fast-Moving vs. Slow-Moving Product Ratio**: Comparison of product movement rates
+10. **Average Days to Sell Inventory**: Average time to sell current inventory
+11. **Warehouse Utilization Rate**: Percentage of warehouse capacity being used
 12. **Underutilized Space**: Amount of unused warehouse space
-13. **Overstocked vs Understocked Percentage**: Comparison of stocking levels across warehouses
+13. **Overstocked vs. Understocked Percentage**: Comparison of stock level distributions
 14. **Forecast Accuracy**: Accuracy percentage of demand predictions
-15. **Predicted vs Actual Demand**: Comparison between forecasted and actual demand
-16. **Seasonal Demand Trends**: Patterns of demand variation across seasons
+15. **Predicted vs. Actual Demand**: Comparison between forecasted and actual demand
+16. **Seasonal Demand Trends**: Patterns in demand based on seasonal factors
 
 ## 5. Conceptual Data Model Diagram
 
 | Source Entity | Relationship Key Field | Target Entity | Relationship Type |
 |---------------|------------------------|---------------|-------------------|
-| Product | Product Name | Inventory | One-to-Many |
-| Warehouse | Warehouse Name | Inventory | One-to-Many |
-| Product | Product Name | Sales | One-to-Many |
-| Warehouse | Warehouse Name | Sales | One-to-Many |
-| Supplier | Supplier Name | Purchase Order | One-to-Many |
-| Product | Product Name | Purchase Order | One-to-Many |
-| Purchase Order | Order Reference | Delivery | One-to-One |
-| Product | Product Name | Forecast | One-to-Many |
-| Warehouse | Warehouse Name | Forecast | One-to-Many |
-| Inventory | Product Name | Sales | Many-to-Many |
+| Product | product_name | Inventory Level | One-to-Many |
+| Warehouse | warehouse_name | Inventory Level | One-to-Many |
+| Product | product_name | Threshold Configuration | One-to-Many |
+| Warehouse | warehouse_name | Threshold Configuration | One-to-Many |
+| Supplier | supplier_name | Purchase Order | One-to-Many |
+| Product | product_name | Purchase Order | Many-to-Many |
+| Product | product_name | Sales Transaction | One-to-Many |
+| Warehouse | warehouse_name | Sales Transaction | One-to-Many |
+| Product | product_name | Demand Forecast | One-to-Many |
+| Warehouse | warehouse_name | Demand Forecast | One-to-Many |
 
 ## 6. Common Data Elements in Report Requirements
 
-1. **Product Name**: Referenced across all five reports for product identification and analysis
+1. **Product Name**: Referenced across all five reports for inventory tracking, sales analysis, and forecasting
 2. **Warehouse Name**: Used in inventory stock levels, sales correlation, and warehouse utilization reports
-3. **Category**: Product categorization used in multiple reports for grouping and analysis
-4. **Stock Level**: Core inventory data used in stock levels and correlation reports
-5. **Sales Quantity**: Sales data referenced in correlation and forecast reports
-6. **Region**: Geographic grouping used across warehouse and sales analysis
-7. **Supplier Name**: Referenced in supplier performance and procurement-related calculations
-8. **Delivery Time**: Used in supplier performance and lead time calculations
-9. **Historical Sales Data**: Foundation for forecasting and trend analysis across reports
-10. **Threshold Levels**: Minimum and maximum levels used in inventory and warehouse reports
+3. **Category**: Product categorization used for grouping and analysis across multiple reports
+4. **Stock Level**: Current inventory quantities referenced in stock levels and correlation reports
+5. **Location/Region**: Geographic identifiers used for warehouse and supplier performance analysis
+6. **Sales Quantity**: Sales data used in correlation and demand forecast reports
+7. **Inventory Levels**: Stock quantities referenced in multiple reports for analysis and optimization
+8. **Historical Sales Data**: Past sales information used for trend analysis and demand forecasting
+9. **Delivery Time**: Supplier performance metric used for procurement decisions
+10. **Utilization Metrics**: Capacity and space utilization data for warehouse optimization
