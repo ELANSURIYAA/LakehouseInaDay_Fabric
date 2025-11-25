@@ -11,109 +11,100 @@ ____________________________________________
 ## 1. Data Expectations
 
 ### 1.1 Data Completeness
-1. All product names must be present and cannot be null or empty
-2. Stock levels must be recorded for all products in all warehouses
-3. Supplier information must be complete for all purchase orders
-4. Historical sales data must be available for accurate forecasting
-5. Warehouse capacity and utilization data must be maintained for all locations
-6. Delivery performance data must be captured for all supplier orders
+1. All product names must be present and non-null for inventory tracking and reporting
+2. Warehouse capacity and utilized space data must be complete for accurate utilization calculations
+3. Supplier delivery and performance data must be comprehensive for reliable supplier evaluation
+4. Historical sales data must be available for accurate demand forecasting and trend analysis
+5. Stock level information must be current and complete across all warehouses and products
+6. Purchase order data must include all required fields for supplier performance assessment
 
 ### 1.2 Data Accuracy
-1. Stock levels must accurately reflect physical inventory counts
-2. Sales data must match actual transaction records
-3. Supplier delivery times must be calculated based on actual order and delivery dates
-4. Warehouse utilization calculations must be based on accurate capacity measurements
-5. Forecast accuracy must be validated against actual demand outcomes
-6. Financial calculations must use precise cost of goods sold values
+1. Stock levels must accurately reflect real-time inventory quantities to prevent stockouts or overstocking
+2. Supplier delivery times and fulfillment rates must be precisely recorded for performance evaluation
+3. Sales quantity data must be accurate to ensure reliable inventory turnover calculations
+4. Warehouse capacity and utilization measurements must be precise for space optimization
+5. Cost of goods sold data must be accurate for proper inventory turnover ratio calculations
+6. Forecast accuracy calculations must be based on validated historical and predicted data
 
 ### 1.3 Data Format
-1. Product names must follow consistent naming conventions
-2. Dates must be in standardized format for delivery and sales tracking
-3. Percentage values must be expressed consistently across all reports
-4. Numeric values must maintain appropriate decimal precision
-5. Status fields must use predefined enumerated values
-6. Geographic regions must follow standardized location codes
+1. Percentage values must be formatted consistently between 0% and 100% across all reports
+2. Time-based measurements (days, delivery times) must use consistent units
+3. Capacity measurements must use standardized units (square feet or cubic meters)
+4. Currency values for purchase orders must follow organizational standards
+5. Date formats for sales trends and historical data must be consistent
+6. Product categories must follow standardized classification schemes
 
 ### 1.4 Data Consistency
-1. Product names must be consistent across all entities and reports
-2. Warehouse names must be standardized across inventory and sales data
-3. Supplier names must be uniform across purchase orders and performance metrics
-4. Time periods must be consistently defined across historical and forecast data
-5. Unit measurements must be consistent for capacity and space calculations
-6. Currency values must be consistent across all financial calculations
+1. Product names must be consistent across all reports and systems
+2. Warehouse names and locations must be standardized across all inventory reports
+3. Supplier names must be consistent across purchase orders and performance reports
+4. Stock replenishment status values must use predefined categories consistently
+5. Regional classifications must be consistent across warehouses and sales data
+6. Time periods for trend analysis must be consistently defined across reports
 
 ## 2. Constraints
 
 ### 2.1 Mandatory Fields
-1. **Product Name**: Required for all inventory, sales, and forecast records as primary identifier
-2. **Warehouse Name**: Mandatory for all location-based inventory and utilization tracking
-3. **Supplier Name**: Required for all purchase orders and performance evaluations
-4. **Stock Level**: Must be present for all inventory records to enable stock management
-5. **Sales Quantity**: Required for all sales transactions to support analysis and forecasting
-6. **Warehouse Capacity**: Mandatory for utilization rate calculations
+1. **Product Name**: Required for all inventory and sales transactions as the primary identifier
+2. **Warehouse Name**: Mandatory for location-based inventory tracking and utilization reporting
+3. **Supplier Name**: Required for all purchase orders and supplier performance evaluation
+4. **Stock Level**: Essential for inventory management and stockout prevention
+5. **Warehouse Capacity**: Necessary for accurate utilization rate calculations
+6. **Sales Quantity**: Required for inventory turnover and demand forecasting calculations
 
 ### 2.2 Uniqueness Requirements
-1. **Product Name**: Must be unique within the entire system to prevent duplicate entries
+1. **Product Name**: Must be unique within the system to prevent inventory tracking conflicts
 2. **Warehouse Name**: Must be unique to ensure accurate location-based reporting
-3. **Supplier Name**: Must be unique to maintain accurate supplier performance tracking
-4. **Product-Warehouse combination**: Must be unique for inventory records to prevent duplicate stock entries
-5. **Purchase Order references**: Must be unique to ensure accurate order tracking
+3. **Supplier Name**: Must be unique for proper supplier performance tracking
+4. **Product-Warehouse combinations**: Must be unique for inventory level tracking
+5. **Purchase Order identifiers**: Must be unique for accurate order tracking and fulfillment
 
 ### 2.3 Data Type Limitations
-1. **Stock Level**: Must be non-negative integer values only
-2. **Sales Quantity**: Must be non-negative integer values
-3. **Warehouse Capacity**: Must be positive numeric values in square feet or cubic meters
-4. **Utilized Space**: Must be non-negative and cannot exceed total warehouse capacity
-5. **Percentage fields**: Must be numeric values between 0% and 100% unless explicitly allowed to exceed
-6. **Average Delivery Time**: Must be positive numeric values in days
-7. **Predicted Demand**: Must be non-negative numeric values
+1. **Stock Level**: Must be a non-negative integer representing physical inventory count
+2. **Sales Quantity**: Must be a non-negative integer representing units sold
+3. **Warehouse Capacity**: Must be a positive number in standardized measurement units
+4. **Average Delivery Time**: Must be a positive number representing days
+5. **Inventory Levels**: Must be non-negative integers that cannot exceed warehouse capacity
+6. **Percentage fields**: Must be numeric values between 0 and 100
 
 ### 2.4 Dependencies
-1. **Minimum Threshold**: Must be less than Maximum Threshold for all products
-2. **Utilized Space**: Cannot exceed Total Warehouse Capacity
-3. **Defective Items**: Cannot exceed Total Items Ordered
-4. **Orders Delivered on Time**: Cannot exceed Total Orders placed
-5. **Historical Sales Data**: Required for calculating Predicted Demand
-6. **Average Daily Sales**: Required for calculating Days of Inventory Remaining
+1. **Reorder Point calculation**: Depends on valid Average Daily Sales and Lead Time data
+2. **Warehouse Utilization Rate**: Depends on accurate Total Capacity and Utilized Space measurements
+3. **Inventory Turnover Ratio**: Requires valid Cost of Goods Sold and Average Inventory data
+4. **Forecast Accuracy**: Depends on both Historical Sales Data and Predicted Demand values
+5. **Supplier Performance metrics**: Require complete Purchase Order and delivery data
+6. **Stock Replenishment Status**: Depends on current stock levels and threshold configurations
 
 ### 2.5 Referential Integrity
-1. **Product-Inventory relationship**: All inventory records must reference valid products
-2. **Warehouse-Inventory relationship**: All inventory records must reference valid warehouses
-3. **Supplier-Purchase Order relationship**: All purchase orders must reference valid suppliers
-4. **Product-Sales relationship**: All sales records must reference valid products
-5. **Purchase Order-Delivery relationship**: All deliveries must reference valid purchase orders
-6. **Product-Forecast relationship**: All forecast records must reference valid products
+1. **Product-Inventory relationship**: Every inventory record must reference a valid product
+2. **Warehouse-Inventory relationship**: Every inventory record must reference a valid warehouse
+3. **Supplier-Purchase Order relationship**: Every purchase order must reference a valid supplier
+4. **Product-Sales relationship**: Every sales transaction must reference a valid product
+5. **Warehouse-Sales relationship**: Every sales transaction must reference a valid warehouse
+6. **Product-Forecast relationship**: Every demand forecast must reference a valid product
 
 ## 3. Business Rules
 
 ### 3.1 Data Processing Rules
-1. **Reorder Point Calculation**: Must use formula (Average daily sales × Lead time) for all products
-2. **Overstock Percentage**: Must be calculated as (Current stock - Max threshold) / Max threshold × 100
-3. **Days of Inventory Remaining**: Must be calculated as Current stock / Average daily sales
-4. **On-Time Delivery Rate**: Must be calculated as (Orders Delivered on Time / Total Orders) × 100
-5. **Defective Items Percentage**: Must be calculated as (Defective Items / Total Items Ordered) × 100
-6. **Inventory Turnover Ratio**: Must be calculated as Cost of Goods Sold / Average Inventory
-7. **Average Days to Sell**: Must be calculated as 365 / Inventory Turnover Ratio
-8. **Warehouse Utilization Rate**: Must be calculated as (Utilized Space / Total Capacity) × 100
-9. **Underutilized Space**: Must be calculated as Total Capacity - Utilized Space
-10. **Predicted Demand**: Must use formula (Historical Sales + Seasonal Factors) × Trend Factors
-11. **Forecast Accuracy**: Must be calculated as (1 - |Actual - Predicted| / Actual) × 100
+1. **Threshold Validation**: Minimum threshold levels must always be less than maximum threshold levels
+2. **Capacity Constraint**: Utilized space cannot exceed total warehouse capacity
+3. **Stock Status Logic**: Stock replenishment status must be calculated based on current stock relative to thresholds
+4. **Percentage Calculations**: All percentage-based KPIs must not exceed 100% unless explicitly allowed
+5. **Non-negative Validation**: Days of Inventory Remaining calculations must not result in negative values
+6. **Historical Data Integrity**: Forecast calculations must be based on valid historical sales data and lead times
 
 ### 3.2 Reporting Logic Rules
-1. **Stock Replenishment Status**: Must be classified as "Below", "Optimal", or "Overstocked" based on threshold comparisons
-2. **Fast-Moving vs Slow-Moving Products**: Classification must be based on inventory turnover ratios
-3. **Seasonal Demand Trends**: Must be based on historical data patterns and align with predicted demand
-4. **Drill Down Functionality**: Must maintain data consistency from aggregate to detailed views
-5. **Drill Up Functionality**: Must properly aggregate detailed data to summary levels
-6. **Security Access**: Data visibility must be restricted based on user roles and permissions
-7. **KPI Dashboard**: Must display real-time or near real-time calculated metrics
+1. **Security Access Control**: Warehouse managers can only view their specific warehouse data
+2. **Aggregation Rules**: Inventory managers can access consolidated data across all warehouses
+3. **Executive Access**: Executives can view aggregate insights for strategic decision-making
+4. **Procurement Access**: Procurement teams have access to detailed supplier performance data
+5. **Sales Team Access**: Sales teams can access product-specific sales data within their scope
+6. **Demand Planner Access**: Demand planners have access to detailed product demand forecasts
 
 ### 3.3 Transformation Guidelines
-1. **Data Aggregation**: Must maintain accuracy when summarizing data across time periods, regions, or categories
-2. **Historical Data Processing**: Must preserve data lineage for audit and trend analysis purposes
-3. **Forecast Model Updates**: Must incorporate latest historical data and adjust seasonal/trend factors
-4. **Performance Metric Calculations**: Must use consistent time periods and data sources across all suppliers
-5. **Inventory Status Updates**: Must reflect real-time changes in stock levels and threshold breaches
-6. **Cross-Report Consistency**: Same data elements must show identical values across different reports
-7. **Data Quality Validation**: Must implement checks to ensure calculated values fall within expected ranges
-8. **Exception Handling**: Must define procedures for handling missing data, outliers, and calculation errors
+1. **KPI Calculation Standards**: All KPI calculations must follow predefined formulas consistently
+2. **Trend Analysis Rules**: Sales trends must be based on validated historical data patterns
+3. **Forecasting Logic**: Predicted demand must incorporate historical sales, seasonal factors, and trend factors
+4. **Performance Metrics**: Supplier performance calculations must be based on complete order and delivery data
+5. **Utilization Calculations**: Warehouse utilization rates must account for both physical space and operational constraints
+6. **Inventory Classification**: Fast-moving vs. slow-moving product classification must be based on standardized velocity thresholds
