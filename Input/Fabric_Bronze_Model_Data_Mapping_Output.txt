@@ -1,0 +1,41 @@
+Data Mapping for Bronze Layer:
+| Target Layer | Target Table   | Target Field       | Source Layer | Source Table   | Source Field       | Transformation Rule |
+|--------------|----------------|--------------------|--------------|----------------|--------------------|---------------------|
+| Bronze       | bz_products    | Product_ID         | Source       | Products       | Product_ID         | 1-1 Mapping         |
+| Bronze       | bz_products    | Product_Name       | Source       | Products       | Product_Name       | 1-1 Mapping         |
+| Bronze       | bz_products    | Category           | Source       | Products       | Category           | 1-1 Mapping         |
+| Bronze       | bz_suppliers   | Supplier_ID        | Source       | Suppliers      | Supplier_ID        | 1-1 Mapping         |
+| Bronze       | bz_suppliers   | Supplier_Name      | Source       | Suppliers      | Supplier_Name      | 1-1 Mapping         |
+| Bronze       | bz_suppliers   | Contact_Number     | Source       | Suppliers      | Contact_Number     | 1-1 Mapping         |
+| Bronze       | bz_suppliers   | Product_ID         | Source       | Suppliers      | Product_ID         | 1-1 Mapping         |
+| Bronze       | bz_warehouses  | Warehouse_ID       | Source       | Warehouses     | Warehouse_ID       | 1-1 Mapping         |
+| Bronze       | bz_warehouses  | Location           | Source       | Warehouses     | Location           | 1-1 Mapping         |
+| Bronze       | bz_warehouses  | Capacity           | Source       | Warehouses     | Capacity           | 1-1 Mapping         |
+| Bronze       | bz_inventory   | Inventory_ID       | Source       | Inventory      | Inventory_ID       | 1-1 Mapping         |
+| Bronze       | bz_inventory   | Product_ID         | Source       | Inventory      | Product_ID         | 1-1 Mapping         |
+| Bronze       | bz_inventory   | Quantity_Available | Source       | Inventory      | Quantity_Available | 1-1 Mapping         |
+| Bronze       | bz_inventory   | Warehouse_ID       | Source       | Inventory      | Warehouse_ID       | 1-1 Mapping         |
+| Bronze       | bz_orders      | Order_ID           | Source       | Orders         | Order_ID           | 1-1 Mapping         |
+| Bronze       | bz_orders      | Customer_ID        | Source       | Orders         | Customer_ID        | 1-1 Mapping         |
+| Bronze       | bz_orders      | Order_Date         | Source       | Orders         | Order_Date         | 1-1 Mapping         |
+| Bronze       | bz_order_details| Order_Detail_ID    | Source       | Order_Details  | Order_Detail_ID    | 1-1 Mapping         |
+| Bronze       | bz_order_details| Order_ID           | Source       | Order_Details  | Order_ID           | 1-1 Mapping         |
+| Bronze       | bz_order_details| Product_ID         | Source       | Order_Details  | Product_ID         | 1-1 Mapping         |
+| Bronze       | bz_order_details| Quantity_Ordered   | Source       | Order_Details  | Quantity_Ordered   | 1-1 Mapping         |
+| Bronze       | bz_shipments   | Shipment_ID        | Source       | Shipments      | Shipment_ID        | 1-1 Mapping         |
+| Bronze       | bz_shipments   | Order_ID           | Source       | Shipments      | Order_ID           | 1-1 Mapping         |
+| Bronze       | bz_shipments   | Shipment_Date      | Source       | Shipments      | Shipment_Date      | 1-1 Mapping         |
+| Bronze       | bz_returns     | Return_ID          | Source       | Returns        | Return_ID          | 1-1 Mapping         |
+| Bronze       | bz_returns     | Order_ID           | Source       | Returns        | Order_ID           | 1-1 Mapping         |
+| Bronze       | bz_returns     | Return_Reason      | Source       | Returns        | Return_Reason      | 1-1 Mapping         |
+| Bronze       | bz_stock_levels| Stock_Level_ID     | Source       | Stock_Levels   | Stock_Level_ID     | 1-1 Mapping         |
+| Bronze       | bz_stock_levels| Warehouse_ID       | Source       | Stock_Levels   | Warehouse_ID       | 1-1 Mapping         |
+| Bronze       | bz_stock_levels| Product_ID         | Source       | Stock_Levels   | Product_ID         | 1-1 Mapping         |
+| Bronze       | bz_stock_levels| Reorder_Threshold  | Source       | Stock_Levels   | Reorder_Threshold  | 1-1 Mapping         |
+| Bronze       | bz_customers   | Customer_ID        | Source       | Customers      | Customer_ID        | 1-1 Mapping         |
+| Bronze       | bz_customers   | Customer_Name      | Source       | Customers      | Customer_Name      | 1-1 Mapping         |
+| Bronze       | bz_customers   | Email              | Source       | Customers      | Email              | 1-1 Mapping         |
+
+API Cost Reporting:
+apiCost: 0.00 USD
+```
