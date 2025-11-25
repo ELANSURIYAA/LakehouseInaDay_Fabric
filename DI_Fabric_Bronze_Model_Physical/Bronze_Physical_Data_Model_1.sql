@@ -7,11 +7,11 @@ _____________________________________________
 _____________________________________________
 
 -- =====================================================
--- BRONZE LAYER DDL SCRIPT
--- Inventory Management System - Bronze Layer Tables
+-- BRONZE LAYER PHYSICAL DATA MODEL
+-- INVENTORY MANAGEMENT SYSTEM
 -- =====================================================
 
--- 1. Bronze Products Table
+-- 1. BRONZE PRODUCTS TABLE
 CREATE TABLE IF NOT EXISTS bronze_products (
     Product_ID STRING,
     Product_Name STRING,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS bronze_products (
 )
 USING DELTA;
 
--- 2. Bronze Suppliers Table
+-- 2. BRONZE SUPPLIERS TABLE
 CREATE TABLE IF NOT EXISTS bronze_suppliers (
     Supplier_ID STRING,
     Supplier_Name STRING,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS bronze_suppliers (
 )
 USING DELTA;
 
--- 3. Bronze Warehouses Table
+-- 3. BRONZE WAREHOUSES TABLE
 CREATE TABLE IF NOT EXISTS bronze_warehouses (
     Warehouse_ID STRING,
     Location STRING,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS bronze_warehouses (
 )
 USING DELTA;
 
--- 4. Bronze Inventory Table
+-- 4. BRONZE INVENTORY TABLE
 CREATE TABLE IF NOT EXISTS bronze_inventory (
     Inventory_ID STRING,
     Product_ID STRING,
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS bronze_inventory (
 )
 USING DELTA;
 
--- 5. Bronze Orders Table
+-- 5. BRONZE ORDERS TABLE
 CREATE TABLE IF NOT EXISTS bronze_orders (
     Order_ID STRING,
     Customer_ID STRING,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS bronze_orders (
 )
 USING DELTA;
 
--- 6. Bronze Order Details Table
+-- 6. BRONZE ORDER_DETAILS TABLE
 CREATE TABLE IF NOT EXISTS bronze_order_details (
     Order_Detail_ID STRING,
     Order_ID STRING,
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS bronze_order_details (
 )
 USING DELTA;
 
--- 7. Bronze Shipments Table
+-- 7. BRONZE SHIPMENTS TABLE
 CREATE TABLE IF NOT EXISTS bronze_shipments (
     Shipment_ID STRING,
     Order_ID STRING,
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS bronze_shipments (
 )
 USING DELTA;
 
--- 8. Bronze Returns Table
+-- 8. BRONZE RETURNS TABLE
 CREATE TABLE IF NOT EXISTS bronze_returns (
     Return_ID STRING,
     Order_ID STRING,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS bronze_returns (
 )
 USING DELTA;
 
--- 9. Bronze Stock Levels Table
+-- 9. BRONZE STOCK_LEVELS TABLE
 CREATE TABLE IF NOT EXISTS bronze_stock_levels (
     Stock_Level_ID STRING,
     Warehouse_ID STRING,
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS bronze_stock_levels (
 )
 USING DELTA;
 
--- 10. Bronze Customers Table
+-- 10. BRONZE CUSTOMERS TABLE
 CREATE TABLE IF NOT EXISTS bronze_customers (
     Customer_ID STRING,
     Customer_Name STRING,
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS bronze_customers (
 )
 USING DELTA;
 
--- 11. Bronze Audit Table
+-- 11. AUDIT TABLE
 CREATE TABLE IF NOT EXISTS bronze_audit (
     record_id NUMBER AUTOINCREMENT,
     source_table STRING,
@@ -137,5 +137,5 @@ CREATE TABLE IF NOT EXISTS bronze_audit (
 USING DELTA;
 
 -- =====================================================
--- END OF BRONZE LAYER DDL SCRIPT
+-- END OF BRONZE LAYER PHYSICAL DATA MODEL
 -- =====================================================
